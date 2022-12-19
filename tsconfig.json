@@ -8,7 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["es6", "dom", "es2019.object"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -23,7 +23,7 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es5",
+    "target": "es2019",
     "typeRoots": ["./node_modules/@types", "./typings/assets.d.ts"]
   },
   "include": ["src"]
