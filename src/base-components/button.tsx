@@ -1,13 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-import {
-  colorDarkBrown,
-  colorTextBege,
-  space5XL,
-  spaceS,
-  spaceXXL,
-} from "./tokens";
+import { Styled } from "./button.styles";
 
 export type ButtonType = {
   children?: React.ReactNode;
@@ -15,15 +7,5 @@ export type ButtonType = {
 };
 
 export const Button: React.FC<ButtonType> = ({ onClick, children }) => (
-  <StyledButton {...{ onClick }} data-qa="button">
-    {children}
-  </StyledButton>
+  <Styled.Button {...{ onClick }}>{children}</Styled.Button>
 );
-
-const StyledButton = styled.button`
-  height: ${spaceXXL};
-  min-width: ${space5XL};
-  margin: ${spaceS};
-  background: ${colorDarkBrown};
-  color: ${colorTextBege};
-`;

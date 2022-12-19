@@ -1,26 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 import { SelectedBabyContextWrapper } from "./contexts/selected-baby-context-wrapper";
-import { MenuSection } from "./sections/menu-section";
-import { ResultSection } from "./sections/result-section";
-import { colorLightBege } from "./base-components/tokens";
+import { ResultSection, MenuSection } from "./sections";
+import { Styled } from "./app.styles";
 
-export const App = () => (
-  <StyledPage>
-    <SelectedBabyContextWrapper>
+export const App: React.FC = () => (
+  <SelectedBabyContextWrapper>
+    <Styled.Page>
       <ResultSection />
       <MenuSection />
-    </SelectedBabyContextWrapper>
-  </StyledPage>
+    </Styled.Page>
+  </SelectedBabyContextWrapper>
 );
-
-const StyledPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${colorLightBege};
-  min-height: 100vh;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-`;

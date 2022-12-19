@@ -1,20 +1,17 @@
 import React from "react";
-import styled from "styled-components";
 
 import { Button } from "../base-components";
 import { useGenerateRandomBaby } from "../hooks";
+
+import { Styled } from "./menu-section.styles";
 
 export const MenuSection: React.FC = () => {
   const { generateRandomBaby } = useGenerateRandomBaby();
 
   return (
-    <ButtonMenu>
+    <Styled.Menu>
       <Button onClick={() => generateRandomBaby("MALE")}>Male</Button>
       <Button onClick={() => generateRandomBaby("FEMALE")}>Female</Button>
-    </ButtonMenu>
+    </Styled.Menu>
   );
 };
-
-const ButtonMenu = styled.section`
-  display: flex;
-`;
