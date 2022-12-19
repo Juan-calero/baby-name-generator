@@ -11,10 +11,11 @@ export type SelectedBabyContextWrapperType = {
 export const SelectedBabyContextWrapper: React.FC<
   SelectedBabyContextWrapperType
 > = ({ children }) => {
-  const [babyResult, setBabyResult] = React.useState<SelectedBabyType>(null);
+  const [selectedBaby, setSelectedBaby] =
+    React.useState<SelectedBabyType>(null);
 
   return (
-    <SelectedBabyContext.Provider value={{ babyResult, setBabyResult }}>
+    <SelectedBabyContext.Provider value={{ selectedBaby, setSelectedBaby }}>
       {children}
     </SelectedBabyContext.Provider>
   );

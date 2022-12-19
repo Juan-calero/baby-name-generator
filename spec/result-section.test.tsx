@@ -4,7 +4,7 @@ import type { RenderResult } from "@testing-library/react";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
-  useContext: () => ({ babyResult: { name: "mockBabyName" } }),
+  useContext: () => ({ selectedBaby: { name: "mockBabyName" } }),
 }));
 
 const mockCard = jest.fn(({ children }) => children);
@@ -24,7 +24,7 @@ describe("ResultSection", () => {
 
   describe.each`
     component | mockComponent | expectedProps
-    ${"Card"} | ${mockCard}   | ${{ children: "mockBabyName" }}
+    ${"Card"} | ${mockCard}   | ${{ children: <p>mockBabyName</p> }}
   `("$component", ({ mockComponent, expectedProps }) => {
     it("renders with correct params", () => {
       renderComponent();

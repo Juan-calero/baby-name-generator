@@ -9,30 +9,32 @@ export type UseGenerateRandomBabyType = () => {
 export type GenerateRandomBabyType = (gender: "MALE" | "FEMALE") => void;
 
 export const useGenerateRandomBaby: UseGenerateRandomBabyType = () => {
-  const { setBabyResult } = React.useContext(SelectedBabyContext);
+  const { setSelectedBaby } = React.useContext(SelectedBabyContext);
 
   const generateRandomBaby: GenerateRandomBabyType = (gender) => {
-    const genderLists: { MALE: any; FEMALE: any } = {
+    const GENDER_LISTS: { MALE: string[][]; FEMALE: string[][] } = {
       MALE: [],
       FEMALE: [],
     };
 
+    // Separate Male and Female Babies
     babyList.forEach((baby) => {
-      if (baby[1] === "MALE") genderLists.MALE.push(baby);
-      if (baby[1] === "FEMALE") genderLists.FEMALE.push(baby);
+      if (baby[1] === "MALE") GENDER_LISTS.MALE.push(baby);
+      if (baby[1] === "FEMALE") GENDER_LISTS.FEMALE.push(baby);
+      // This way, we're excluding all the babies that might not be "MALE" nor "FEMALE"
     });
 
-    const baby: string[] =
-      genderLists[gender][
-        Math.floor(Math.random() * genderLists[gender].length)
-      ] || null;
+    const selectedBaby: string[] =
+      GENDER_LISTS[gender][
+        Math.floor(Math.random() * GENDER_LISTS[gender].length)
+      ];
 
-    setBabyResult({
-      babiesWithSameName: Number(baby[4]),
-      birthYear: Number(baby[0]),
-      ethnicity: baby[2],
+    setSelectedBaby({
+      babiesWithSameName: Number(selectedBaby[4]),
+      birthYear: Number(selectedBaby[0]),
+      ethnicity: selectedBaby[2],
       gender,
-      name: baby[3]
+      name: selectedBaby[3]
         .toLowerCase()
         .replace(/^[a-z]/, (firstLetter) => firstLetter.toUpperCase()),
     });
