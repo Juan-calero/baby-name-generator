@@ -30,7 +30,7 @@ describe("ResultSection", () => {
       const { getByText } = renderComponent();
       expect(mockComponent).toBeCalledTimes(1);
       expect(mockComponent).toBeCalledWith(expectedProps, {});
-      expect(getByText("mockBabyName")).toBeDefined();
+      expect(getByText("mockBabyName")).toBeInTheDocument();
     });
   });
 });

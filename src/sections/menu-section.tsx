@@ -10,8 +10,18 @@ export const MenuSection: React.FC = () => {
 
   return (
     <Styled.Menu>
-      <Button onClick={() => generateRandomBaby("MALE")}>Male</Button>
-      <Button onClick={() => generateRandomBaby("FEMALE")}>Female</Button>
+      <Button
+        onClick={() => generateRandomBaby("MALE")}
+        data-testid="button-male"
+      >
+        Male
+      </Button>
+      <Button
+        onClick={() => generateRandomBaby("FEMALE")}
+        data-testid="button-female"
+      >
+        Female
+      </Button>
     </Styled.Menu>
   );
 };

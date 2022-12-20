@@ -9,7 +9,7 @@ export const ResultSection: React.FC = () => {
 
   return (
     <Styled.Card>
-      <p>{selectedBaby?.name}</p>
+      <p data-testid="selected-baby-name">{selectedBaby?.name || "Welcome"}</p>
     </Styled.Card>
   );
 };

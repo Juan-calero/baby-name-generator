@@ -2,6 +2,7 @@ import { renderHook } from "@testing-library/react-hooks";
 import type { RenderHookResult } from "@testing-library/react-hooks";
 
 import type { UseGenerateRandomBabyType } from "../src/hooks/use-generate-random-baby";
+import { MOCK_BABY_LIST } from "./mocks/mock-baby-list";
 
 const mockSetSelectedBaby = jest.fn();
 jest.mock("react", () => ({
@@ -9,11 +10,6 @@ jest.mock("react", () => ({
   useContext: () => ({ setSelectedBaby: mockSetSelectedBaby }),
 }));
 
-const MOCK_BABY_LIST: string[][] = [
-  ["2013", "FEMALE", "ASIAN AND PACIFIC ISLANDER", "Olivia", "172", "1"],
-  ["2016", "MALE", "HISPANIC", "LIAM", "387", "1"],
-  ["2006", "NEUTRAL", "ALIEN", "Alfred", "912", "1"],
-];
 jest.mock("../src/api/api.json", () => MOCK_BABY_LIST);
 
 describe("UseGenerateRandomBaby", () => {

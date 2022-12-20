@@ -8,7 +8,7 @@ module.exports = {
       isolatedModules: true,
     },
   },
-  setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
   moduleDirectories: ["node_modules"],
   testPathIgnorePatterns: ["/node_modules/"],
   testEnvironment: "jsdom",

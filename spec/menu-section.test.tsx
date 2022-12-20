@@ -45,9 +45,9 @@ describe("MenuSection", () => {
   });
 
   describe.each`
-    callNo | expectedChildren          | expectedOnClickProps
-    ${1}   | ${{ children: "Male" }}   | ${"MALE"}
-    ${2}   | ${{ children: "Female" }} | ${"FEMALE"}
+    callNo | expectedChildren                                          | expectedOnClickProps
+    ${1}   | ${{ children: "Male", "data-testid": "button-male" }}     | ${"MALE"}
+    ${2}   | ${{ children: "Female", "data-testid": "button-female" }} | ${"FEMALE"}
   `(
     "Button no. $callNo",
     ({ callNo, expectedChildren, expectedOnClickProps }) => {

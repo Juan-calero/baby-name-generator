@@ -6,6 +6,8 @@ export type ButtonType = {
   onClick: () => void;
 };
 
-export const Button: React.FC<ButtonType> = ({ onClick, children }) => (
-  <Styled.Button {...{ onClick }}>{children}</Styled.Button>
-);
+export const Button: React.FC<ButtonType> = ({
+  onClick,
+  children,
+  ...props
+}) => <Styled.Button {...{ onClick, ...props }}>{children}</Styled.Button>;
