@@ -24,12 +24,13 @@ describe("ResultSection", () => {
 
   describe.each`
     component | mockComponent | expectedProps
-    ${"Card"} | ${mockCard}   | ${{ children: <p>mockBabyName</p> }}
+    ${"Card"} | ${mockCard}   | ${{ children: expect.anything() }}
   `("$component", ({ mockComponent, expectedProps }) => {
     it("renders with correct params", () => {
-      renderComponent();
+      const { getByText } = renderComponent();
       expect(mockComponent).toBeCalledTimes(1);
       expect(mockComponent).toBeCalledWith(expectedProps, {});
+      expect(getByText("mockBabyName")).toBeDefined();
     });
   });
 });
