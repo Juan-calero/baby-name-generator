@@ -5,7 +5,7 @@ It uses a JSON file as a mock API response on the Frontend, and it's purpose is 
 
 ## Getting Started
 
-1. Before we can launch the app, please make sure all the dependencies are install, by running this on the command line:
+1. Before we can launch the app, please make sure all the dependencies are installeds, by running this on the command line:
 
 ```
 yarn
